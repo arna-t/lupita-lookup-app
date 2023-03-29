@@ -18,7 +18,9 @@ import json
 # pathToFile = "./birthday/birthday.json"
 
 # full path to file
-pathToFile = "C:/Users/jerom/Documents/GitHub/class-python/birthday/birthday.json"
+# "C:/Users/jerom/Documents/GitHub/class-python/birthday/birthday.json"
+
+pathToFile = "/Users/arna.togayeva/Documents/GitHub/lupita/src/birthday.json"
 
 
 # try to open a file and throw a error if it is not found
