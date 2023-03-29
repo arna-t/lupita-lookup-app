@@ -54,5 +54,5 @@ for elem in birthdayList:
 print("Jocelyn Jones's birthday is: " + birthdayDictionary["Jocelyn Jones"])
 
 # to get user input
-name = input("Enter a name:")
+name = input("Enter a name: ")
 print("name = " + name)
