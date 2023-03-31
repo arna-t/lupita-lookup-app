@@ -1,24 +1,8 @@
-# Gabriel Solomon, 2020
+# Arna Togayeva
+# Lupita's lookup app
 
 import json
 
-#
-# this is a relative path to the .json data file
-# you can also use a "full" or "absolute path" to the file
-# windows and mac paths are different.  You should google and youttube to learn about paths if you are
-# not familiar with them.  They are important fundamental computer concepts.
-#
-# this is a full windows path, note the forward slashes "/" used in python
-# pathToFile = "E:/Users/jerome/GitHub/evc-cit134a-python/birthday/birthday.json"
-#
-# mac (which is built on linux) and linux paths are like this: "a/b/c/d/e/f.json"
-#
-
-# relative path
-# pathToFile = "./birthday/birthday.json"
-
-# full path to file
-# "C:/Users/jerom/Documents/GitHub/class-python/birthday/birthday.json"
 
 pathToFile = "/Users/arna.togayeva/Documents/GitHub/lupita/src/birthday.json"
 
@@ -44,15 +28,39 @@ for elem in birthdayList:
     name = elem["name"]
     birthday = elem["birthday"]
 
-    print("name = " + name)
-    print("birthday = " + birthday)
+    #print("name = " + name)
+    #print("birthday = " + birthday)
 
     birthdayDictionary[name] = birthday
 
 
 # to print a value in the dictionary by giving it a string with the name as the key
-print("Jocelyn Jones's birthday is: " + birthdayDictionary["Jocelyn Jones"])
+#print("Jocelyn Jones's birthday is: " + birthdayDictionary["Jocelyn Jones"])
 
 # to get user input
-name = input("Enter a name: ")
-print("name = " + name)
+name = str(input("Enter a name: "))
+# print("name = " + name)
+
+nameLow = name.lower()
+
+# if name in birthdayDictionary:
+   # print("His/her birthday is " + birthdayDictionary[name])
+#else:
+#    print("Lupe doesn't have a friend that matches the name " + name)
+
+
+# convert keys to lower case in birthdayDictionary 
+# search name in lower case keys
+substring_key = [key for key, value in birthdayDictionary.items() if nameLow in key.lower()]
+substring_value = [value for key, value in birthdayDictionary.items() if nameLow in key.lower()]
+
+# combine key and value, print with left aligned width 
+if substring_key and substring_value:
+    print("Lupe's friends that match the name " + name + " are:")
+    print("--------------------------  ---------------")
+    print("Name                         Birthday")
+    print("--------------------------  ---------------")
+    for key, value in zip(substring_key, substring_value):
+        print("%-20s" % key + "       " +  "%-10s" % value)
+else:
+    print("Lupe does not have any friends that matche the name " + name)
